@@ -4,11 +4,12 @@
  *
  *  cid is a 2d array listing available currency.
  *
- *  Return the string "Insufficient Funds" if cash-in-drawer is less than the change due. Return the
+ *  Return the string "Insufficient Funds" if cash-in-drawer is less than the change due or the 
+ *  change cannot be provided with the current scenario of the cash-in-drawer. Return the
  *  string "Closed" if cash-in-drawer is equal to the change due.
  *
- *  Otherwise, return change in coin and bills, sorted in highest to lowest order.
- *
+ *  Otherwise, return the optimal* change in coin and bills, sorted in highest to lowest order.
+ *  The optimal change will have the lowest possible number of coins/bills.
  */
 
  function drawer(price, cash, cid) {
@@ -18,14 +19,17 @@
 
 
  // Example cash-in-drawer array:
- // [['PENNY', 1.01], Penny is 1 cent
- // ['NICKEL', 2.05], Nickel is 5 cents
- // ['DIME', 3.10], Dime is 10 cents
- // ['QUARTER', 4.25], Quater is 25 cents
- // ['ONE', 90.00], One Dollar is 100 cents
- // ['FIVE', 55.00],
- // ['TEN', 20.00],
- // ['TWENTY', 60.00],
- // ['ONE HUNDRED', 100.00]]
+ // [['PAISA', 25], 0.5 rupees is 1 Paisa
+ // ['ONE', 10],
+ // ['TWO', 15],
+ // ['FIVE', 35],
+ // ['TEN', 9],
+ // ['TWENTY', 8],
+ // ['ONE HUNDRED', 5],
+ // ['ONE THOUSAND', 2]]
+ 
+ // The currency of the cash in drawer can always assumed to be PKR with denominations in the example above
+ 
  // Example call
- // drawer(19.50, 20.00, [['PENNY', 1.01], ['NICKEL', 2.05], ['DIME', 3.10], ['QUARTER', 4.25], ['ONE', 90.00], ['FIVE', 55.00], ['TEN', 20.00], ['TWENTY', 60.00], ['ONE HUNDRED', 100.00]]);
+ // drawer(17.5, 20.0, [['PAISA', 25], ['ONE', 11], ['TWO', 15], ['FIVE', 36], ['TEN', 9], ['TWENTY', 8], ['ONE HUNDRED', 5], ['ONE THOUSAND', 2]]);
+ // output [['TWO', 2], [PAISA', 1]]
