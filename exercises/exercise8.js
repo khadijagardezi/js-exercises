@@ -7,7 +7,7 @@
  *  Return the string "Insufficient Funds" if cash-in-drawer is less than the change due. Return the
  *  string "Closed" if cash-in-drawer is equal to the change due.
  *
- *  Otherwise, return the change in coin and bills, sorted in highest to lowest order.
+ *  Otherwise, return change in coin and bills, sorted in highest to lowest order.
  */
 
  function drawer(price, cash, cid) {
