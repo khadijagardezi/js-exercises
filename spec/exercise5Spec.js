@@ -6,7 +6,7 @@ describe("isPalidrome", function() {
 
 	it("with single word palindrome", function() {
 		expect(isPalindrome("racecar")).toBe(true);
-	})
+	});
 
 	it("with multi word palindrome", function() {
 		expect(isPalindrome("was it a car or a cat i saw")).toBe(true);
