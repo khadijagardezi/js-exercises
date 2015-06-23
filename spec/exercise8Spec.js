@@ -1,10 +1,33 @@
-/*
+var cid = [
+  	['ONE RUPEE', 6],
+  	['TWO RUPEES', 7],
+  	['FIVE RUPEES', 5],
+  	['TEN RUPEES', 1],
+  	['TWENTY RUPEES', 2],
+  	['ONE HUNDRED RUPEES', 2],
+  	['ONE THOUSAND RUPEES', 1]
+];
 
-expect(drawer(19.50, 20.00, [['PENNY', 1.01], ['NICKEL', 2.05], ['DIME', 3.10], ['QUARTER', 4.25], ['ONE', 90.00], ['FIVE', 55.00], ['TEN', 20.00], ['TWENTY', 60.00], ['ONE HUNDRED', 100.00]])).to.be.a('array');expected undefined to be an array
-expect(drawer(19.50, 20.00, [['PENNY', 0.01], ['NICKEL', 0], ['DIME', 0], ['QUARTER', 0], ['ONE', 0], ['FIVE', 0], ['TEN', 0], ['TWENTY', 0], ['ONE HUNDRED', 0]])).to.be.a('string');expected undefined to be a string
-expect(drawer(19.50, 20.00, [['PENNY', 0.50], ['NICKEL', 0], ['DIME', 0], ['QUARTER', 0], ['ONE', 0], ['FIVE', 0], ['TEN', 0], ['TWENTY', 0], ['ONE HUNDRED', 0]])).to.be.a('string');expected undefined to be a string
-assert.deepEqual(drawer(19.50, 20.00, [['PENNY', 1.01], ['NICKEL', 2.05], ['DIME', 3.10], ['QUARTER', 4.25], ['ONE', 90.00], ['FIVE', 55.00], ['TEN', 20.00], ['TWENTY', 60.00], ['ONE HUNDRED', 100.00]]), [['QUARTER', 0.50]], 'return correct change');return correct change: expected undefined to deeply equal [ [ 'QUARTER', 0.5 ] ]
-assert.deepEqual(drawer(3.26, 100.00, [['PENNY', 1.01], ['NICKEL', 2.05], ['DIME', 3.10], ['QUARTER', 4.25], ['ONE', 90.00], ['FIVE', 55.00], ['TEN', 20.00], ['TWENTY', 60.00], ['ONE HUNDRED', 100.00]]), [['TWENTY', 60.00], ['TEN', 20.00], ['FIVE', 15], ['ONE', 1], ['QUARTER', 0.50], ['DIME', 0.20], ['PENNY', 0.04] ], 'return correct change with multiple coins and bills');return correct change with multiple coins and bills: expected undefined to deeply equal [ Array(7) ]
-assert.deepEqual(drawer(19.50, 20.00, [['PENNY', 0.01], ['NICKEL', 0], ['DIME', 0], ['QUARTER', 0], ['ONE', 0], ['FIVE', 0], ['TEN', 0], ['TWENTY', 0], ['ONE HUNDRED', 0]]), 'Insufficient Funds', 'insufficient funds');insufficient funds: expected undefined to deeply equal 'Insufficient Funds'
-assert.deepEqual(drawer(19.50, 20.00, [['PENNY', 0.50], ['NICKEL', 0], ['DIME', 0], ['QUARTER', 0], ['ONE', 0], ['FIVE', 0], ['TEN', 0], ['TWENTY', 0], ['ONE HUNDRED', 0]]), "Closed", 'cash-in-drawer equals change');cash-in-drawer equals change: expected undefined to deeply equal 'Closed'
-*/
+describe("drawer", function() {
+
+	it("with price 17 and 20 cash", function() {
+		expect(drawer(17, 20, cid)).toBe([['TWO RUPEES', 1], ['ONE RUPEE', 1]]);
+	});
+
+	it("with change equal to the cash-in-drawer", function() {
+		expect(drawer(1295, 2590, cid)).toBe("Closed");
+	});
+
+	it("with change greater than the amount in the cash-in-drawer", function() {
+		expect(drawer(2000, 5000, cid)).toBe("Insufficient Funds");
+	});
+
+	it("with price 100 and cash 170", function() {
+		expect(drawer(100, 170, cid)).toBe([['TWENTY RUPEES', 2], ['TEN RUPEES', 1], ['FIVE RUPEES', 4]]);
+	});
+
+	it("with price 14 and cash 28", function() {
+		expect(drawer(14, 28, [['ONE RUPEE', 10], ['TWO RUPEES', 3], ['FIVE RUPEES', 0], ['TEN RUPEES', 0], ['ONE HUNDRED RUPEES', 0], ['ONE THOUSAND RUPEES', 0]])).toBe([['TWO RUPEES', 3], ['ONE RUPEE', 8]]);
+	});
+
+});

@@ -8,7 +8,7 @@
  *  string "Closed" if cash-in-drawer is equal to the change due.
  *
  *  Otherwise, return change in coin and bills, sorted in highest to lowest order.
- *
+ *  In case of multiple solutions, return the one containing the highest value of coin/bill
  */
 
  function drawer(price, cash, cid) {
@@ -18,14 +18,16 @@
 
 
  // Example cash-in-drawer array:
- // [['PENNY', 1.01], Penny is 1 cent
- // ['NICKEL', 2.05], Nickel is 5 cents
- // ['DIME', 3.10], Dime is 10 cents
- // ['QUARTER', 4.25], Quater is 25 cents
- // ['ONE', 90.00], One Dollar is 100 cents
- // ['FIVE', 55.00],
- // ['TEN', 20.00],
- // ['TWENTY', 60.00],
- // ['ONE HUNDRED', 100.00]]
+ // ['ONE RUPEE', 10],
+ // ['TWO RUPEES', 15],
+ // ['FIVE RUPEES', 35],
+ // ['TEN RUPEES', 9],
+ // ['TWENTY RUPEES', 8],
+ // ['ONE HUNDRED RUPEES', 5],
+ // ['ONE THOUSAND RUPEES', 2]]
+ 
+ // The currency of the cash in drawer can always assumed to be PKR with denominations in the example above
+ 
  // Example call
- // drawer(19.50, 20.00, [['PENNY', 1.01], ['NICKEL', 2.05], ['DIME', 3.10], ['QUARTER', 4.25], ['ONE', 90.00], ['FIVE', 55.00], ['TEN', 20.00], ['TWENTY', 60.00], ['ONE HUNDRED', 100.00]]);
+ // drawer(17, 20, [['ONE RUPEE', 11], ['TWO RUPEES', 15], ['FIVE RUPEES', 36], ['TEN RUPEES', 9], ['TWENTY RUPEES', 8], ['ONE HUNDRED RUPEES', 5], ['ONE THOUSAND RUPEES', 2]]);
+ // output [['TWO RUPEES', 1], [ONE RUPEE', 1]]
