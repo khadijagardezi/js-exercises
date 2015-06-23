@@ -1,23 +1,24 @@
 describe("sort", function() {
-	
+
 	it("with an empty array", function() {
-		expect(sort([])).toBe([]);
+		var result = sort([]);
+		expect(result).toEqual([]);
 	});
 
 	it("with one word", function() {
-		expect(sort(["apple"])).toBe(["apple"]);
+		expect(sort(["apple"])).toEqual(["apple"]);
 	});
 
 	it("with multiple words", function() {
-		expect(sort(["orange", "apple", "banaana", "grapes"])).toBe(["apple", "banaana", "grapes", "orange"]);
+		expect(sort(["orange", "apple", "banaana", "grapes"])).toEqual(["apple", "banaana", "grapes", "orange"]);
 	});
-	
+
 	it("with multiple already sorted words", function() {
-		expect(sort(["apple", "banaana", "orange"])).toBe(["apple", "banaana", "orange"]);
+		expect(sort(["apple", "banaana", "orange"])).toEqual(["apple", "banaana", "orange"]);
 	});
 
 	it("with multiple words and similar beginning letters", function() {
-		expect(sort(["abdulqadir", "abdulghaffar", "abdulrafay"])).toBe(["abdulghaffar", "abdulqadir", "abdulrafay"]);
+		expect(sort(["abdulqadir", "abdulghaffar", "abdulrafay"])).toEqual(["abdulghaffar", "abdulqadir", "abdulrafay"]);
 	});
 
 });

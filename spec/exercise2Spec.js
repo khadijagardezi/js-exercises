@@ -2,8 +2,8 @@ describe("filterLongWords", function() {
 
   it("with an empty array", function() {
     var result = filterLongWords([], 1);
-    expect(typeof result).toBe('array');
-    expect(result).toBe([]);
+    expect(typeof result).toBe('object');
+    expect(result).toEqual([]);
   });
 
   it("with the 2 words bigger than 2", function() {
