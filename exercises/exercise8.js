@@ -4,12 +4,10 @@
  *
  *  cid is a 2d array listing available currency.
  *
- *  Return the string "Insufficient Funds" if cash-in-drawer is less than the change due or the 
- *  change cannot be provided with the current scenario of the cash-in-drawer. Return the
+ *  Return the string "Insufficient Funds" if cash-in-drawer is less than the change due. Return the
  *  string "Closed" if cash-in-drawer is equal to the change due.
  *
- *  Otherwise, return the optimal* change in coin and bills, sorted in highest to lowest order.
- *  The optimal change will have the lowest possible number of coins/bills.
+ *  Otherwise, return the change in coin and bills, sorted in highest to lowest order.
  */
 
  function drawer(price, cash, cid) {
