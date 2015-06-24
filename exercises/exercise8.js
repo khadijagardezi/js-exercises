@@ -11,10 +11,10 @@
  *  In case of multiple solutions, return the one containing the highest value of coin/bill
  */
 
- function drawer(price, cash, cid) {
-   var change;
-   return change;
- }
+function drawer(price, cash, cid) {
+	var change;
+	return change;
+}
 
 
  // Example cash-in-drawer array:
