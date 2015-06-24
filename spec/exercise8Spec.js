@@ -26,8 +26,8 @@ describe("drawer", function() {
     expect(drawer(100, 170, cid)).toEqual([['TWENTY RUPEES', 2], ['TEN RUPEES', 1], ['FIVE RUPEES', 4]]);
   });
 
-  it("with price 14 and cash 28", function() {
-    expect(drawer(14, 28, [['ONE RUPEE', 10], ['TWO RUPEES', 3], ['FIVE RUPEES', 0], ['TEN RUPEES', 0], ['ONE HUNDRED RUPEES', 0], ['ONE THOUSAND RUPEES', 0]])).toEqual([['TWO RUPEES', 3], ['ONE RUPEE', 8]]);
-  });
+	it("with price 14 and cash 28", function() {
+		expect(drawer(14, 28, [['ONE RUPEE', 10], ['TWO RUPEES', 3], ['FIVE RUPEES', 0], ['TEN RUPEES', 0], ['TWENTY RUPEES', 0], ['ONE HUNDRED RUPEES', 0], ['ONE THOUSAND RUPEES', 0]])).toEqual([['TWO RUPEES', 3], ['ONE RUPEE', 8]]);
+	});
 
 });
