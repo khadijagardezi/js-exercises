@@ -7,9 +7,9 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-jasmine": "~0.4.0"
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-jasmine": "latest"
   },
   "keywords": [
     "js",
@@ -18,6 +18,6 @@
   "author": "Mashhood Rastgar",
   "license": "ISC",
   "dependencies": {
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "latest"
   }
 }
